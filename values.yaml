@@ -1,0 +1,11 @@
+services:
+- global_target:
+    nodes: []
+- cpu-hog:
+    enabled: 'false'
+- memory-hog:
+    enabled: 'true'
+- io-stress:
+    enabled: 'false'
+- node-restart:
+    enabled: "true"
