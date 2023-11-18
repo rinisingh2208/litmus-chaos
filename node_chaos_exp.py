@@ -22,7 +22,6 @@ import requests
 import json
 import random
 import math
-from vault import vault
 from requests.adapters import HTTPAdapter
 from requests.packages.urllib3.util.retry import Retry
 
@@ -96,8 +95,8 @@ def executeRemoteCommand(command, ssh):
 
 class commonMethods:
     def __init__(self):
-        self.username = vault.yFetch("node", "username", "")
-        self.password = vault.yFetch("node", "password", "")
+        self.username = "default"
+        self.password = "default"
 
     def create_cronjob(self):
         with open('/home/centos/crontab_lable.txt', 'w') as f:
@@ -770,8 +769,8 @@ def copy_id_rsa_to_ips(ip):
     try:
         key_path="~/.ssh/id_rsa"
         # Connect to the remote server
-        username = vault.yFetch("node", "username", "")
-        password = vault.yFetch("node", "password", "")
+        username = "default"
+        password = "default"
         client.connect(ip, username=username, password=password)
 
         command = 'chmod 600 .ssh/authorized_keys'
